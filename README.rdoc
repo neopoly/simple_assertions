@@ -1,0 +1,7 @@
+= Assertions for test/unit
+
+Useful assertions for test/unit
+
+== Assertions
+
+* assert_errors_on
