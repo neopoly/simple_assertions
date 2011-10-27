@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = SimpleAssertions::VERSION
   s.authors     = ["Peter Suschlik"]
   s.email       = ["ps@neopoly.de"]
-  s.homepage    = "https://github.com/neopoly/test-unit-assertions"
+  s.homepage    = "https://github.com/neopoly/simple_assertions"
   s.summary     = %q{Useful assertions for test/unit}
   s.description = %q{}
 
