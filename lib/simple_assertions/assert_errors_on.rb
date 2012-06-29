@@ -5,17 +5,19 @@ module SimpleAssertions
     # Assert errors on given parameters.
     # It call #valid? on +object+ unless called with a block.
     #
-    # assert_errors_on record, :email
-    # assert_errors_on record, :email => 2
-    # assert_errors_on record, :email => "is blank"
-    # assert_errors_on record, :email => /blank/
-    # assert_errors_on record, :email => ["is blank", "is invalid"]
-    # assert_errors_on record, :email, :plz => 2
-    # assert_errors_on record, [:username, :email] => "is blank"
+    # == Example
     #
-    # assert_errors_on record, :email => 1 do
-    #   assert record.save
-    # end
+    #   assert_errors_on record, :email
+    #   assert_errors_on record, :email => 2
+    #   assert_errors_on record, :email => "is blank"
+    #   assert_errors_on record, :email => /blank/
+    #   assert_errors_on record, :email => ["is blank", "is invalid"]
+    #   assert_errors_on record, :email, :plz => 2
+    #   assert_errors_on record, [:username, :email] => "is blank"
+    #
+    #   assert_errors_on record, :email => 1 do
+    #     assert record.save
+    #   end
     def assert_errors_on(object, *attributes_or_hash)
       if block_given?
         yield
