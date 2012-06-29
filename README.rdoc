@@ -6,13 +6,13 @@ Useful assertions for test/unit
 
 === minitest
 
-To include all assertions for `minitest` do:
+To include all assertions for +minitest+ do:
 
   require 'simple_assertions/minitest'
 
 === test/unit
 
-To include all assertions for `test/unit` do:
+To include all assertions for +test/unit+ do:
 
   require 'simple_assertions/testunit'
 
