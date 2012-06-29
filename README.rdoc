@@ -13,7 +13,7 @@ Or with more control what to include:
 
   require 'simple_assertions'
 
-  class Test::Unit::TestCase
+  class MiniTest::TestCase
     include SimpleAssertions::AssertErrorsOn
     include SimpleAssertions::AssertRaises
   end
