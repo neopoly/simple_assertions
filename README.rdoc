@@ -4,7 +4,7 @@ Useful assertions for test/unit
 
 Gem[https://rubygems.org/gems/simple_assertions] |
 Source[https://github.com/neopoly/simple_assertions] |
-RDoc[http://rubydoc.info/github/neopoly/simple_assertions/master/file/README.rdoc] |
+RDoc[http://rubydoc.info/github/neopoly/simple_assertions/master/file/README.rdoc]
 
 == Usage
 
