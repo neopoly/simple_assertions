@@ -4,10 +4,19 @@ Useful assertions for test/unit
 
 == Usage
 
-To include all assertions for test/unit do:
+=== minitest
+
+To include all assertions for `minitest` do:
+
+  require 'simple_assertions/minitest'
+
+=== test/unit
+
+To include all assertions for `test/unit` do:
 
   require 'simple_assertions/testunit'
 
+=== manual
 
 Or with more control what to include:
 
