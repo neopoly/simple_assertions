@@ -1,3 +1,3 @@
-Test::Unit::TestCase.class_eval do
-  include SimpleAssertions::AssertErrorsOn
+class Test::Unit::TestCase do
+  include *SimpleAssertions.all
 end

@@ -1,3 +1,3 @@
 class MiniTest::TestCase
-  include SimpleAssertions::AssertErrorsOn
+  include *SimpleAssertions.all
 end
