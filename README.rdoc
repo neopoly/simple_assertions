@@ -15,9 +15,11 @@ Or with more control what to include:
 
   class Test::Unit::TestCase
     include SimpleAssertions::AssertErrorsOn
+    include SimpleAssertions::AssertRaises
   end
 
 
 == Assertions
 
 * assert_errors_on
+* assert_raises
