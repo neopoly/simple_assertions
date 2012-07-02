@@ -20,7 +20,8 @@ module SimpleAssertions
       attributes = args.last.is_a?(Hash) ? args.pop : {}
       exception = super(*args, &block).tap do |exception|
         attributes.each do |attribute, expected|
-          actual = exception.send(attribute)
+          assert_respond_to exception, attribute
+          actual = exception.public_send(attribute)
           assert_operator expected, :===, actual
         end
       end
