@@ -27,20 +27,26 @@ class SimpleAssertionsAssertRaisesTest < Spec
   include SimpleAssertions::AssertRaises
 
   context :assert_raises do
-    test "exact param match" do
+    test "match param exactly" do
       assert_raises MyError, :param => "string" do
         my_error! "string"
       end
     end
 
-    test "regexp param match" do
+    test "match param via regexp" do
       assert_raises MyError, :param => /string/i do
         my_error! "my STRING rocks"
       end
     end
 
+    test "match param class" do
+      assert_raises MyError, :param => MyError do
+        my_error! MyError
+      end
+    end
+
     test "param does not match on === operator" do
-      assert_raises MiniTest::Assertion, :message => /"foo".*=== "bar"/ do
+      assert_raises MiniTest::Assertion, :message => /"foo" to match "bar"/ do
         assert_raises MyError, :param => "foo" do
           my_error! "bar"
         end

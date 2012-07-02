@@ -22,7 +22,9 @@ module SimpleAssertions
         attributes.each do |attribute, expected|
           assert_respond_to exception, attribute
           actual = exception.public_send(attribute)
-          assert_operator expected, :===, actual
+          msg = "Expected #{mu_pp(expected)} to match #{mu_pp(actual)} for #{attribute} on #{mu_pp(exception)}"
+          matched = expected == actual || expected === actual
+          assert matched, msg
         end
       end
     end
