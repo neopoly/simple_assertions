@@ -7,9 +7,9 @@ Source[https://github.com/neopoly/simple_assertions] |
 RDoc[http://rubydoc.info/github/neopoly/simple_assertions/master/file/README.rdoc] |
 {<img src="https://secure.travis-ci.org/neopoly/simple_assertions.png?branch=master" alt="Build Status" />}[http://travis-ci.org/neopoly/simple_assertions]
 
-== Only 1.9.3 suported!
+== Only >= 1.9.2 suported!
 
-Note that only ruby version >= 1.9.3 is supported.
+Note that only ruby version >= 1.9.2 is supported.
 
 == Usage
 
