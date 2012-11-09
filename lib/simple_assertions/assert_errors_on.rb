@@ -1,9 +1,7 @@
 module SimpleAssertions
   module AssertErrorsOn
-    # http://gist.github.com/49013
-    #
     # Assert errors on given parameters.
-    # It call #valid? on +object+ unless called with a block.
+    # It calls #valid? on +object+ unless called with a block.
     #
     # == Example
     #
@@ -16,8 +14,10 @@ module SimpleAssertions
     #   assert_errors_on record, [:username, :email] => "is blank"
     #
     #   assert_errors_on record, :email => 1 do
-    #     assert record.save
+    #     assert !record.save
     #   end
+    #
+    # Based on http://gist.github.com/49013
     def assert_errors_on(object, *attributes_or_hash)
       if block_given?
         yield
