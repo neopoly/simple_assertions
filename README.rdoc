@@ -6,10 +6,6 @@ Gem[https://rubygems.org/gems/simple_assertions] |
 Source[https://github.com/neopoly/simple_assertions] |
 RDoc[http://rubydoc.info/github/neopoly/simple_assertions/master/file/README.rdoc]
 
-== Only >= 1.9.2 suported!
-
-Note that only ruby version >= 1.9.2 is supported.
-
 == Usage
 
   require 'simple_assertions'
@@ -25,3 +21,15 @@ Note that only ruby version >= 1.9.2 is supported.
 
 * assert_errors_on
 * assert_raises
+
+== Only >= 1.9.2 suported!
+
+Note that only ruby version >= 1.9.2 is supported.
+
+== Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
