@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Peter Suschlik"]
   s.email       = ["ps@neopoly.de"]
   s.homepage    = "https://github.com/neopoly/simple_assertions"
-  s.summary     = %q{Useful assertions for test/unit}
+  s.summary     = %q{A collection of usefull assertions.}
   s.description = %q{}
 
   s.required_ruby_version = '>= 1.9.2'
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency "rake"
+  s.add_runtime_dependency "rdoc"
 
   s.add_development_dependency "minitest", ">= 3.3"
   s.add_development_dependency "testem"
