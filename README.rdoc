@@ -1,11 +1,10 @@
-= Assertions for minitest or test/unit
+= Assertions for minitest or test/unit {<img src="https://secure.travis-ci.org/neopoly/simple_assertions.png?branch=master" alt="Build Status" />}[http://travis-ci.org/neopoly/simple_assertions]
 
 A collection of usefull assertions.
 
 Gem[https://rubygems.org/gems/simple_assertions] |
 Source[https://github.com/neopoly/simple_assertions] |
 RDoc[http://rubydoc.info/github/neopoly/simple_assertions/master/file/README.rdoc] |
-{<img src="https://secure.travis-ci.org/neopoly/simple_assertions.png?branch=master" alt="Build Status" />}[http://travis-ci.org/neopoly/simple_assertions]
 
 == Only >= 1.9.2 suported!
 
