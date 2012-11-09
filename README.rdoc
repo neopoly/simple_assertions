@@ -19,8 +19,8 @@ Documentation[http://rubydoc.info/github/neopoly/simple_assertions/master/file/R
 
 == Assertions
 
-* assert_errors_on
-* assert_raises
+* SimpleAssertions::AssertErrorsOn
+* SimpleAssertions::AssertRaises
 
 == Only >= 1.9.2 suported!
 
