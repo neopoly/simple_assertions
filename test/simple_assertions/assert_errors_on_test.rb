@@ -109,6 +109,18 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
     end
   end
 
+  context "translation match with symbol" do
+    test "match" do
+      assert_errors_on empty, :username => :"errors.messages.blank"
+    end
+
+    test "mismatch" do
+      assert_assertion /:"errors\.messages\.invalid\"\(is invalid\) expected for.*?\.username/ do
+        assert_errors_on empty, :username => :"errors.messages.invalid"
+      end
+    end
+  end
+
   context "unknown matcher type" do
     test "fails" do
       assert_assertion 'unknown matcher type Float: 1.0' do

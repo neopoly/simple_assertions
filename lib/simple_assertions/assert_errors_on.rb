@@ -7,11 +7,13 @@ module SimpleAssertions
     #
     #   assert_errors_on record, :email
     #   assert_errors_on record, :email => 2
-    #   assert_errors_on record, :email => "is blank"
+    #   assert_errors_on record, :email => "can't be blank"
+    #   assert_errors_on record, :email => :"errors.messages.blank"
+    #   assert_errors_on record, :email => :"errors.attributes.email.blank"
     #   assert_errors_on record, :email => /blank/
-    #   assert_errors_on record, :email => ["is blank", "is invalid"]
+    #   assert_errors_on record, :email => ["can't be blank", "is invalid"]
     #   assert_errors_on record, :email, :plz => 2
-    #   assert_errors_on record, [:username, :email] => "is blank"
+    #   assert_errors_on record, [:username, :email] => "can't be blank"
     #
     #   assert_errors_on record, :email => 1 do
     #     assert !record.save
@@ -42,11 +44,15 @@ module SimpleAssertions
           when String
             assert_equal [ pattern ], errors,
               "#{pattern.inspect} expected for #{object.class}.#{field} but got #{errors.inspect}."
+          when Symbol
+            translation = I18n.t(pattern)
+            assert_equal [ translation ], errors,
+              "#{pattern.inspect}(#{translation}) expected for #{object.class}.#{field} but got #{errors.inspect}."
           when Array
             assert_equal pattern.sort, errors.sort,
               "#{pattern.inspect} expected for #{object.class}.#{field} but got #{errors.inspect}."
           else
-            flunk "unknown matcher of type #{pattern.class}: #{pattern.inspect}"
+            flunk "unknown matcher type #{pattern.class}: #{pattern.inspect}"
           end
         end
       end
