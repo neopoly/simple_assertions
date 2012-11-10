@@ -42,7 +42,7 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
     end
   end
 
-  context "count" do
+  context "error count with fixnum" do
     test "correct" do
       assert_errors_on empty, :username => 1, :email => 1
       assert_errors_on empty, :username => 1
@@ -67,7 +67,7 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
     end
   end
 
-  context "regexp" do
+  context "partial match with regexp" do
     test "match" do
       assert_errors_on empty, :username => /blank/, :email => /blank/
       assert_errors_on person(:username => nil, :email => "invalid"), :username => /blank/, :email => /invalid/
@@ -82,7 +82,7 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
     end
   end
 
-  context "string" do
+  context "exact single string match" do
     test "match" do
       assert_errors_on empty, :username => "can't be blank", :email => "can't be blank"
       assert_errors_on person(:username => nil, :email => "invalid"), :username => "can't be blank", :email => "is invalid"
@@ -96,7 +96,7 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
     end
   end
 
-  context "array" do
+  context "exact string match with array" do
     test "match" do
       assert_errors_on person(:fullname => nil), :fullname => ["can't be blank", "is invalid"]
       assert_errors_on person(:fullname => nil), :fullname => ["is invalid", "can't be blank"]
