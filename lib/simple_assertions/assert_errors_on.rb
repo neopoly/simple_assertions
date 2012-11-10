@@ -46,7 +46,7 @@ module SimpleAssertions
             assert_equal pattern.sort, errors.sort,
               "#{pattern.inspect} expected for #{object.class}.#{field} but got #{errors.inspect}."
           else
-            fail "unknown type #{pattern.inspect}"
+            flunk "unknown matcher of type #{pattern.class}: #{pattern.inspect}"
           end
         end
       end

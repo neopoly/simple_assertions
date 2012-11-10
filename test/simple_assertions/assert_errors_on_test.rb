@@ -34,9 +34,9 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
     end
 
     test "yield block" do
-      assert_raises RuntimeError, :message => /inside/ do
+      assert_assertion "inside" do
         assert_errors_on empty do
-          fail "inside"
+          flunk "inside"
         end
       end
     end
@@ -105,6 +105,14 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
     test "mismatch" do
       assert_assertion /\["yay"\] expected for.*?\.fullname/ do
         assert_errors_on person(:fullname => nil), :fullname => ["yay"]
+      end
+    end
+  end
+
+  context "unknown matcher type" do
+    test "fails" do
+      assert_assertion 'unknown matcher type Float: 1.0' do
+        assert_errors_on empty, :username => 1.0
       end
     end
   end
