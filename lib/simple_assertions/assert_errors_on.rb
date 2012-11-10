@@ -25,12 +25,12 @@ module SimpleAssertions
         assert !object.valid?, "#{object.inspect} should be invalid."
       end
 
-      hash = attributes_or_hash[-1].is_a?(Hash) ? attributes_or_hash.pop : {}
-      attributes_or_hash.each { |field| hash[field] = 1 }
+      hash = attributes_or_hash.last.is_a?(Hash) ? attributes_or_hash.pop : {}
+      attributes_or_hash.each { |field| hash[field] ||= 1 }
 
       hash.each do |fields, pattern|
-        Array.wrap(fields).each do |field|
-          errors = Array.wrap(object.errors[field])
+        Array(fields).each do |field|
+          errors = Array(object.errors[field])
 
           case pattern
           when Fixnum
@@ -41,10 +41,10 @@ module SimpleAssertions
               "expected to match #{pattern} for #{object.class}.#{field} but got #{errors.inspect}."
           when String
             assert_equal [ pattern ], errors,
-              "#{pattern.inspect} error(s) expected for #{object.class}.#{field} but got #{errors.inspect}."
+              "#{pattern.inspect} expected for #{object.class}.#{field} but got #{errors.inspect}."
           when Array
             assert_equal pattern.sort, errors.sort,
-              "#{pattern.inspect} error(s) expected for #{object.class}.#{field} but got #{errors.inspect}."
+              "#{pattern.inspect} expected for #{object.class}.#{field} but got #{errors.inspect}."
           else
             fail "unknown type #{pattern.inspect}"
           end

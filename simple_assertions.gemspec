@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "minitest", ">= 3.3"
   s.add_development_dependency "testem"
+  s.add_development_dependency "activemodel"
 end
