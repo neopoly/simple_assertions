@@ -1,11 +1,28 @@
-# Simple assertions [<img src="https://secure.travis-ci.org/neopoly/simple_assertions.png?branch=master" alt="Build Status" />](http://travis-ci.org/neopoly/simple_assertions)
+[github]: https://github.com/neopoly/simple_assertions
+[doc]: http://rubydoc.info/github/neopoly/simple_assertions/master/file/README.md
+[gem]: https://rubygems.org/gems/simple_assertions
+[gem-badge]: https://img.shields.io/gem/v/simple_assertions.svg
+[travis]: https://travis-ci.org/neopoly/simple_assertions
+[travis-badge]: https://img.shields.io/travis/neopoly/simple_assertions.svg?branch=master
+[codeclimate]: https://codeclimate.com/github/neopoly/simple_assertions
+[codeclimate-climate-badge]: https://img.shields.io/codeclimate/github/neopoly/simple_assertions.svg
+[codeclimate-coverage-badge]: https://codeclimate.com/github/neopoly/simple_assertions/badges/coverage.svg
+[inchpages]: https://inch-ci.org/github/neopoly/simple_assertions
+[inchpages-badge]: https://inch-ci.org/github/neopoly/simple_assertions.svg?branch=master&style=flat
+
+# Simple assertions
+
+[![Travis][travis-badge]][travis]
+[![Gem Version][gem-badge]][gem]
+[![Code Climate][codeclimate-climate-badge]][codeclimate]
+[![Test Coverage][codeclimate-coverage-badge]][codeclimate]
+[![Inline docs][inchpages-badge]][inchpages]
+
+[Gem][gem] |
+[Source][github] |
+[Documentation][doc]
 
 A collection of usefull assertions.
-
-[Gem](https://rubygems.org/gems/simple_assertions) |
-[Source](https://github.com/neopoly/simple_assertions) |
-[Documentation](http://rubydoc.info/github/neopoly/simple_assertions/master/fi
-le/README.rdoc)
 
 ## Usage
 
@@ -24,9 +41,9 @@ end
 * SimpleAssertions::AssertErrorsOn
 * SimpleAssertions::AssertRaises
 
-## Only >= 1.9.2 suported!
+## Only >= 1.9.3 suported!
 
-Note that only ruby version >= 1.9.2 is supported.
+Note that only ruby version >= 1.9.3 is supported.
 
 ## Contributing
 
