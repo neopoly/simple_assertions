@@ -22,6 +22,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "rdoc"
 
   s.add_development_dependency "minitest", "~> 5.5.1"
-  s.add_development_dependency "testem"
   s.add_development_dependency "activemodel"
 end

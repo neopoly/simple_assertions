@@ -1,6 +1,6 @@
-require "helper"
+require "spec_helper"
 
-class SimpleAssertionsAssertRaisesTest < Spec
+describe SimpleAssertions::AssertRaises do
   class MyError < StandardError
     attr_reader :param
 
@@ -26,26 +26,26 @@ class SimpleAssertionsAssertRaisesTest < Spec
 
   include SimpleAssertions::AssertRaises
 
-  context :assert_raises do
-    test "match param exactly" do
+  describe :assert_raises do
+    it "match param exactly" do
       assert_raises MyError, param: "string" do
         my_error! "string"
       end
     end
 
-    test "match param via regexp" do
+    it "match param via regexp" do
       assert_raises MyError, param: /string/i do
         my_error! "my STRING rocks"
       end
     end
 
-    test "match param class" do
+    it "match param class" do
       assert_raises MyError, param: MyError do
         my_error! MyError
       end
     end
 
-    test "param does not match on === operator" do
+    it "param does not match on === operator" do
       assert_raises MiniTest::Assertion, message: /"foo" to match "bar"/ do
         assert_raises MyError, param: "foo" do
           my_error! "bar"
@@ -53,7 +53,7 @@ class SimpleAssertionsAssertRaisesTest < Spec
       end
     end
 
-    test "exception does not respond to invalid param" do
+    it "exception does not respond to invalid param" do
       assert_raises MiniTest::Assertion, message: /to respond to #invalid/ do
         assert_raises MyError, invalid: "foo" do
           my_error!
@@ -61,7 +61,7 @@ class SimpleAssertionsAssertRaisesTest < Spec
       end
     end
 
-    test "access to private exception param" do
+    it "access to private exception param" do
       assert_raises MiniTest::Assertion, message: /to respond to #paula/ do
         assert_raises MyError, paula: :sir do
           my_error!
@@ -69,7 +69,7 @@ class SimpleAssertionsAssertRaisesTest < Spec
       end
     end
 
-    test "access to protected exception param" do
+    it "access to protected exception param" do
       assert_raises MiniTest::Assertion, message: /to respond to #enemy/ do
         assert_raises MyError, enemy: :war do
           my_error!
