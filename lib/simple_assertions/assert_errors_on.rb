@@ -37,20 +37,20 @@ module SimpleAssertions
           case pattern
           when Fixnum
             assert_equal pattern, errors.size,
-              "#{pattern} error(s) expected for #{object.class}.#{field} but got #{errors.inspect}."
+                         "#{pattern} error(s) expected for #{object.class}.#{field} but got #{errors.inspect}."
           when Regexp
             assert errors.all? { |message| pattern.match(message) },
-              "expected to match #{pattern} for #{object.class}.#{field} but got #{errors.inspect}."
+                   "expected to match #{pattern} for #{object.class}.#{field} but got #{errors.inspect}."
           when String
-            assert_equal [ pattern ], errors,
-              "#{pattern.inspect} expected for #{object.class}.#{field} but got #{errors.inspect}."
+            assert_equal [pattern], errors,
+                         "#{pattern.inspect} expected for #{object.class}.#{field} but got #{errors.inspect}."
           when Symbol
             translation = I18n.t(pattern)
-            assert_equal [ translation ], errors,
-              "#{pattern.inspect}(#{translation}) expected for #{object.class}.#{field} but got #{errors.inspect}."
+            assert_equal [translation], errors,
+                         "#{pattern.inspect}(#{translation}) expected for #{object.class}.#{field} but got #{errors.inspect}."
           when Array
             assert_equal pattern.sort, errors.sort,
-              "#{pattern.inspect} expected for #{object.class}.#{field} but got #{errors.inspect}."
+                         "#{pattern.inspect} expected for #{object.class}.#{field} but got #{errors.inspect}."
           else
             flunk "unknown matcher type #{pattern.class}: #{pattern.inspect}"
           end

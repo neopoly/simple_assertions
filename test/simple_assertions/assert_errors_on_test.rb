@@ -1,6 +1,6 @@
-require 'helper'
+require "helper"
 
-require 'active_model'
+require "active_model"
 
 class SimpleAssertionsAssertErrorsOnTest < Spec
   include SimpleAssertions::AssertRaises
@@ -10,9 +10,9 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
     extend ActiveModel::Naming
     include ActiveModel::Validations
 
-    validates :username, :presence => true
-    validates :email, :presence => true, :format => { :with => %r{\A.+?@.*\z}, :allow_blank => true }
-    validates :fullname, :presence => true, :format => /\A\S+ \S+\z/
+    validates :username, presence: true
+    validates :email, presence: true, format: { with: %r{\A.+?@.*\z}, allow_blank: true }
+    validates :fullname, presence: true, format: /\A\S+ \S+\z/
 
     def persisted?
       false
@@ -28,7 +28,7 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
 
   context "basic" do
     test "validate record" do
-      assert_assertion /should be invalid/ do
+      assert_assertion(/should be invalid/) do
         assert_errors_on valid
       end
     end
@@ -44,10 +44,10 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
 
   context "error count with fixnum" do
     test "correct" do
-      assert_errors_on empty, :username => 1, :email => 1
-      assert_errors_on empty, :username => 1
-      assert_errors_on empty, [ :username, :email ] => 1
-      assert_errors_on valid, :username => 0, :email => 0, :fullname => 0 do
+      assert_errors_on empty, username: 1, email: 1
+      assert_errors_on empty, username: 1
+      assert_errors_on empty, [:username, :email] => 1
+      assert_errors_on valid, username: 0, email: 0, fullname: 0 do
         assert valid.valid?
       end
     end
@@ -57,74 +57,74 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
     end
 
     test "does not overwrite with implicit count" do
-      assert_errors_on empty, :fullname, :fullname => 2
+      assert_errors_on empty, :fullname, fullname: 2
     end
 
     test "fail" do
-      assert_assertion /2 error\(s\) expected for .*?\.username/ do
-        assert_errors_on empty, :username => 2
+      assert_assertion(/2 error\(s\) expected for .*?\.username/) do
+        assert_errors_on empty, username: 2
       end
     end
   end
 
   context "partial match with regexp" do
     test "match" do
-      assert_errors_on empty, :username => /blank/, :email => /blank/
-      assert_errors_on person(:username => nil, :email => "invalid"), :username => /blank/, :email => /invalid/
-      assert_errors_on empty, :username => /blank/
-      assert_errors_on empty, [ :username, :email ] => /blank/
+      assert_errors_on empty, username: /blank/, email: /blank/
+      assert_errors_on person(username: nil, email: "invalid"), username: /blank/, email: /invalid/
+      assert_errors_on empty, username: /blank/
+      assert_errors_on empty, [:username, :email] => /blank/
     end
 
     test "mismatch" do
-      assert_assertion /expected to match.*?invalid.*?\.username/ do
-        assert_errors_on empty, :username => /invalid/
+      assert_assertion(/expected to match.*?invalid.*?\.username/) do
+        assert_errors_on empty, username: /invalid/
       end
     end
   end
 
   context "exact single string match" do
     test "match" do
-      assert_errors_on empty, :username => "can't be blank", :email => "can't be blank"
-      assert_errors_on person(:username => nil, :email => "invalid"), :username => "can't be blank", :email => "is invalid"
-      assert_errors_on empty, [ :username, :email ] => "can't be blank"
+      assert_errors_on empty, username: "can't be blank", email: "can't be blank"
+      assert_errors_on person(username: nil, email: "invalid"), username: "can't be blank", email: "is invalid"
+      assert_errors_on empty, [:username, :email] => "can't be blank"
     end
 
     test "mismatch" do
-      assert_assertion /"is invalid" expected for.*?\.username/ do
-        assert_errors_on empty, :username => "is invalid"
+      assert_assertion(/"is invalid" expected for.*?\.username/) do
+        assert_errors_on empty, username: "is invalid"
       end
     end
   end
 
   context "exact string match with array" do
     test "match" do
-      assert_errors_on person(:fullname => nil), :fullname => ["can't be blank", "is invalid"]
-      assert_errors_on person(:fullname => nil), :fullname => ["is invalid", "can't be blank"]
+      assert_errors_on person(fullname: nil), fullname: ["can't be blank", "is invalid"]
+      assert_errors_on person(fullname: nil), fullname: ["is invalid", "can't be blank"]
     end
 
     test "mismatch" do
-      assert_assertion /\["yay"\] expected for.*?\.fullname/ do
-        assert_errors_on person(:fullname => nil), :fullname => ["yay"]
+      assert_assertion(/\["yay"\] expected for.*?\.fullname/) do
+        assert_errors_on person(fullname: nil), fullname: ["yay"]
       end
     end
   end
 
   context "translation match with symbol" do
     test "match" do
-      assert_errors_on empty, :username => :"errors.messages.blank"
+      assert_errors_on empty, username: :"errors.messages.blank"
     end
 
     test "mismatch" do
-      assert_assertion /:"errors\.messages\.invalid\"\(is invalid\) expected for.*?\.username/ do
-        assert_errors_on empty, :username => :"errors.messages.invalid"
+      assert_assertion(/:"errors\.messages\.invalid\"\(is invalid\) expected for.*?\.username/) do
+        assert_errors_on empty, username: :"errors.messages.invalid"
       end
     end
   end
 
   context "unknown matcher type" do
     test "fails" do
-      assert_assertion 'unknown matcher type Float: 1.0' do
-        assert_errors_on empty, :username => 1.0
+      assert_assertion("unknown matcher type Float: 1.0") do
+        assert_errors_on empty, username: 1.0
       end
     end
   end
@@ -132,19 +132,19 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
   private
 
   def assert_assertion(msg, &block)
-    assert_raises(MiniTest::Assertion, :message => msg, &block)
+    assert_raises(MiniTest::Assertion, message: msg, &block)
   end
 
   def empty
-    person(:username => nil, :email => nil, :fullname => nil)
+    person(username: nil, email: nil, fullname: nil)
   end
 
   def valid
     person
   end
 
-  def person(attributes={})
-    attributes = { :username => "foo", :email => "foo@bar.com", :fullname => "Foo Bar" }.merge(attributes)
+  def person(attributes = {})
+    attributes = { username: "foo", email: "foo@bar.com", fullname: "Foo Bar" }.merge(attributes)
     Person.new(*attributes.values_at(:username, :email, :fullname))
   end
 end
