@@ -22,7 +22,7 @@
 [Source][github] |
 [Documentation][doc]
 
-A collection of usefull assertions.
+A collection of useful assertions.
 
 ## Usage
 

@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.authors     = ["Peter Suschlik"]
   s.email       = ["ps@neopoly.de"]
   s.homepage    = "https://github.com/neopoly/simple_assertions"
-  s.summary     = %q{A collection of usefull assertions.}
-  s.description = %q{}
+  s.summary     = %q{A collection of useful assertions.}
+  s.description = s.summary
 
-  s.required_ruby_version = '>= 1.9.2'
+  s.required_ruby_version = '>= 1.9.3'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "rake"
   s.add_runtime_dependency "rdoc"
 
-  s.add_development_dependency "minitest", ">= 3.3"
+  s.add_development_dependency "minitest", "~> 5.5.1"
   s.add_development_dependency "testem"
   s.add_development_dependency "activemodel"
 end
