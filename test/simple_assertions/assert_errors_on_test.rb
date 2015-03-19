@@ -11,8 +11,8 @@ class SimpleAssertionsAssertErrorsOnTest < Spec
     include ActiveModel::Validations
 
     validates :username, :presence => true
-    validates :email, :presence => true, :format => { :with => %r{^\A.+?@.*\Z}, :allow_blank => true }
-    validates :fullname, :presence => true, :format => /\A\S+ \S+\Z/
+    validates :email, :presence => true, :format => { :with => %r{\A.+?@.*\z}, :allow_blank => true }
+    validates :fullname, :presence => true, :format => /\A\S+ \S+\z/
 
     def persisted?
       false
