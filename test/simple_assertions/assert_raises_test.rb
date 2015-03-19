@@ -70,7 +70,7 @@ class SimpleAssertionsAssertRaisesTest < Spec
     end
 
     test "access to protected exception param" do
-      assert_raises NoMethodError do
+      assert_raises MiniTest::Assertion, :message => /to respond to #enemy/ do
         assert_raises MyError, :enemy => :war do
           my_error!
         end

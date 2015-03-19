@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{A collection of useful assertions.}
   s.description = s.summary
 
-  s.required_ruby_version = '>= 1.9.3'
+  s.required_ruby_version = '>= 2.0'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

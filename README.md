@@ -41,9 +41,9 @@ end
 * SimpleAssertions::AssertErrorsOn
 * SimpleAssertions::AssertRaises
 
-## Only >= 1.9.3 suported!
+## Only >= 2.0 suported!
 
-Note that only ruby version >= 1.9.3 is supported.
+Note that only ruby version >= 2.0 is supported.
 
 ## Contributing
 
