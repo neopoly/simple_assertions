@@ -39,7 +39,7 @@ module SimpleAssertions
             assert_equal pattern, errors.size,
                          "#{pattern} error(s) expected for #{object.class}.#{field} but got #{errors.inspect}."
           when Regexp
-            assert errors.all? { |message| pattern.match(message) },
+            assert errors.any? && errors.all? { |message| pattern.match(message) },
                    "expected to match #{pattern} for #{object.class}.#{field} but got #{errors.inspect}."
           when String
             assert_equal [pattern], errors,

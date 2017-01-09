@@ -80,6 +80,13 @@ describe SimpleAssertions::AssertErrorsOn do
         assert_errors_on empty, username: /invalid/
       end
     end
+
+    it "raises for valid attributes" do
+      person = person(username: nil, email: nil, fullname: "valid fullname")
+      assert_assertion(/expected to match.*?WHY.*?\.fullname/) do
+        assert_errors_on person, fullname: /WHY/
+      end
+    end
   end
 
   describe "exact single string match" do
