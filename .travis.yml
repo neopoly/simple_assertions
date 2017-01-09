@@ -3,11 +3,11 @@ sudo: false
 cache: bundler
 bundler_args: --without tools
 rvm:
-  - 2.4.0
   - 2.3.3
   - 2.2
   - 2.1
   - 2.0
+  - jruby-9.1.5.0
   - ruby-head
   - jruby-head
 after_success:
@@ -19,6 +19,7 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
+    - rvm: ruby-head
     - rvm: jruby-head
 notifications:
   webhooks:
