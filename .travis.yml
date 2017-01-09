@@ -3,12 +3,14 @@ sudo: false
 cache: bundler
 bundler_args: --without tools
 rvm:
-  - 2.0
-  - 2.1
-  - 2.2
   - 2.3
+  - 2.2
+  - 2.1
+  - 2.0
   - ruby-head
   - jruby-head
+after_success:
+  - '[ "${TRAVIS_JOB_NUMBER#*.}" = "1" ] && [ "$TRAVIS_BRANCH" = "master" ] && bundle exec codeclimate-test-reporter'
 env:
   global:
     - CODECLIMATE_REPO_TOKEN=1b43f2bc46bf75b5ae0a4e0c956990346599bf84178fabec28f35c899947093b
