@@ -35,7 +35,7 @@ module SimpleAssertions
           errors = Array(object.errors[field])
 
           case pattern
-          when Fixnum
+          when Integer
             assert_equal pattern, errors.size,
                          "#{pattern} error(s) expected for #{object.class}.#{field} but got #{errors.inspect}."
           when Regexp
