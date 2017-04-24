@@ -45,6 +45,11 @@ end
 
 Note that only ruby version >= 2.0 is supported.
 
+## Release
+
+    edit lib/nested_config/version.rb
+    rake release
+
 ## Contributing
 
 1. [Fork it](https://github.com/neopoly/simple_assertions/fork)
