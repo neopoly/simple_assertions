@@ -48,6 +48,7 @@ Note that only ruby version >= 2.0 is supported.
 ## Release
 
     edit lib/simple_assertions/version.rb
+    git commit -am "Release X.Y.Z"
     rake release
 
 ## Contributing
